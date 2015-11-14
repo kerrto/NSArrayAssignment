@@ -10,8 +10,21 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSArray  *numbers = @[@2,@1,@3,@5,@7,@7,@1,@2,@4,@5];
+        
+        NSSet *numberSet = [NSSet setWithArray:numbers];
+        
+        NSArray *sortedNumbers = [[numberSet allObjects] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO] ]];
+        
+        NSNumber *highest;
+        
+        if ([sortedNumbers count] > 0){
+            highest = sortedNumbers[0];
+            NSLog (@"The highest number is %@", highest);
+        }
     }
-    return 0;
 }
+
+
+
+
